@@ -6,12 +6,28 @@
     <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
 </head>
 <body>
-  {% block content %}
+  <div class="menu">
+      <ul class="menu_list">
+          {% for i, j in menu.items() %}
+          <li class="menu_item">
+              <div>
+                  <a class="link" href="{{ j }}">{{ i }}</a>
+              </div>
+          </li>
+          {% endfor %}
+          <li>
+              <img class="menu_img" src="static/images/hour.png">
+          </li>
+      </ul>
+  </div>
+  <div class="content">
+    {% block content %}
 
-    <!-- >
+      <!-- >
       content
-    </!-->
+      </!-->
 
-  {% endblock %}
+    {% endblock %}
+  </div>
 </body>
 </html>

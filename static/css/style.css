@@ -1,38 +1,102 @@
 body {
   margin: 0%;
-  background: linear-gradient(45deg, #002000, #000020);
+  background: linear-gradient(45deg, #101015, #121212);
   background-attachment: fixed;
+}
+
+.menu {
+  width: 99%;
+  margin: 0.5%;
+  height: 100px;
+  background: linear-gradient(5deg, #6060a0, #60a060);
+  border-radius: 20px;
+  box-shadow: 2px 2px #303535;
+  overflow: hidden;
+}
+
+.menu_list {
+  list-style: none;
+}
+
+.menu_item {
+  float: left;
+  margin: 20px 1% 20px;
+  width: 20%;
+  text-align: center;
+  min-width: 152px;
+}
+
+.link {
+  font-size: 30px;
+  text-decoration: none;
+  color: #308080;
+  font-weight: 900;
+  text-shadow: #40c0c0 2px 2px 0, #10c0c0 1px 1px 0;
+  transition: 1s;
+}
+
+.link:active {
+  color: #0050c0;
+}
+
+.link:hover {
+  color: #10c0c0;
+  font-size: 32px;
+}
+
+.content {
+  margin: 1%;
 }
 
 .button {
   position: absolute;
-/*  background: linear-gradient(75deg, #f35000 0%, #43e000 100%);*/
   background: grey;
-  height: 100px;
-  width: 100px;
-  border: 2px;
-  border-color: lime;
-  margin: 20%;
+  color: lightgrey;
+  height: 4%;
+  width: 10%;
   transition: 2s;
-  animation: anim 3s infinite alternate ease-in-out;
+  border-radius: 5px;
+  border: 0;
 }
 
 .button:hover {
-  background: linear-gradient(75deg, #ff5000 0%, #43ff00 100%);
+  transform: scale(1.2, 1.2);
+  background: black;
+  color: white;
+  border-radius: 10px;
 }
 
-.button:hover::before {
-  opacity: 1;
+.menu_img {
+  height: 70px;
+  width: 130px;
 }
 
-@keyframes
-anim {
-  0% {
-    border-radius: 0%;
-    width: 100px;
-  }
-  100% {
-    border-radius: 50%;
-    width: 200px;
-  }
+.content_container {
+  width: 45%;
+  float: left;
+  background: linear-gradient(45deg, #6060a0, #60a060);
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: 2px 2px #303535;
+  min-width: 500px;
+  margin: 1.5%;
+}
+
+.content_container p {
+  color: cyan;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.image {
+  display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.image img{
+  width: 80%;
+  border-radius: 10%;
 }
