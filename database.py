@@ -35,18 +35,27 @@ class FlaskDatabase:
             self.__db.commit()
         except sqlite3.Error as e:
             print(f"error {e}")
-            return False
-        return True
+        return self
 
     def __delitem__(self, key):
         try:
-            self.__cur.execute(f"DELETE from mainmenu where id = {key}")
+            self.__cur.execute(f"DELETE from members where id = {key}")
             self.__db.commit()
         except sqlite3.Error as e:
             print(f"error {e}")
             return False
         return True
 
+    def get_members(self):
+        try:
+            self.__cur.execute(f"SELECT member FROM members")
+            return tuple(map(lambda a: a[0], self.__cur.fetchall()))
+        except sqlite3.Error as e:
+            print(f"error {e}")
+            return False
+
 if __name__ == "__main__":
     from app import app
-    create_db(app)
+    db = FlaskDatabase(connect_db(app))
+    db._FlaskDatabase__cur.execute(f"SELECT member FROM members")
+    print(db._FlaskDatabase__cur.fetchall()[1]["member"])
