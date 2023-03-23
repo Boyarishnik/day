@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form class="form" action="/members" method="post">
+<form class="form" action="/register" method="post">
     <p>
-        <input type="text" name="username" value="" required>
+        <input class="input" type="text" name="member_name" value="" required>
     </p>
     <p>
-        <label>Password</label>
-        <input type="text" name="password" value="" required>
-    </p>
-    <p>
-        <input class="button" type="submit" value="Войти">
+        <input class="button" type="submit" value="Участвовать">
     </p>
 </form>
 

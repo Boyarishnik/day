@@ -54,8 +54,8 @@ class FlaskDatabase:
             print(f"error {e}")
             return False
 
+
 if __name__ == "__main__":
     from app import app
     db = FlaskDatabase(connect_db(app))
-    db._FlaskDatabase__cur.execute(f"SELECT member FROM members")
-    print(db._FlaskDatabase__cur.fetchall()[1]["member"])
+    print(db.get_members())

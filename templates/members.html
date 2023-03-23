@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="header">
+    Список участников:
+    <img class="earth1" src="static/images/earth.png">
+    <img class="earth2" src="static/images/earth.png">
+</div>
+<ul class="members">
+    {% for member in db.get_members()[::-1] %}
+       <li class="member">
+           {{ member }}
+       </li>
+    {% endfor %}
+</ul>
+{% endblock %}

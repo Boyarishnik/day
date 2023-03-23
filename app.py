@@ -8,7 +8,7 @@ app.config.from_object(Config)
 menu = {"Главная": "/",
         "Участвовать": "/register",
         "Участники": "/members",
-        "asd": "/asdasdasda"}
+        "Подробнее": "https://www.earthhour.org/"}
 
 
 @app.route("/")
@@ -19,10 +19,17 @@ def main():
 @app.route("/register", methods=["POST", "GET"])
 def register():
     db = FlaskDatabase(get_db(app))
-    if request.method == "POST" and member not in db.get_members():
-        db.user = (request.form["username"], request.form["password"])
-        return redirect(url_for("members"))
+    if request.method == "POST" and request.form["member_name"] not in db.get_members():
+        db += request.form["member_name"]
+        print(request.form["member_name"])
+        return redirect("/members")
     return render_template("register.html", menu=menu)
+
+
+@app.route("/members")
+def members():
+    db = FlaskDatabase(get_db(app))
+    return render_template("members.html", menu=menu, db=db)
 
 
 if __name__ == "__main__":
